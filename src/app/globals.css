@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm, earthy furniture theme colors */
+  --background: #faf9f6; /* Soft warm white */
+  --foreground: #2d2926; /* Dark earthy charcoal */
+  --primary: #8b5e34;    /* Classic wood brown */
+  --secondary: #d5c7bc;  /* Soft taupe/beige */
+  --accent: #5e6b56;     /* Muted sage green */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1c1a18;
+    --foreground: #ebe5df;
+    --primary: #b38052;
+    --secondary: #4d443b;
+    --accent: #809074;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Scaling */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    color: var(--foreground);
+  }
+
+  h1 { font-size: 3rem; letter-spacing: -0.02em; }
+  h2 { font-size: 2.5rem; letter-spacing: -0.01em; }
+  h3 { font-size: 2rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1.125rem; }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    opacity: 0.85; /* Slight transparency for softer reading text */
+  }
+
+  small { 
+    font-size: 0.875rem; 
+    opacity: 0.7;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--accent);
+  }
+  section {
+    padding: 3rem 1rem; /* Mobile */
+    max-width: 1440px;
+    margin-inline: auto; /* Centers the section on ultra-wide screens */
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 4.5rem 2rem; /* Tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    section {
+      padding: 6rem 4rem; /* Desktop */
+    }
+  }
+}
