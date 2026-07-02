@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import styles from "./navbar.module.css";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -28,9 +29,9 @@ function Navbar() {
         }
     ]
     return(
-        <nav className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16 py-6">
+        <nav className="w-full ">
             {/*Desktop nav header */}
-            <div className="flex justify-between">
+            <div className={`${styles.navbg} flex justify-between items-center w-full mx-auto px-4 md:px-8 lg:px-16 py-6`}>
                 <div>
                     <Link href={"/"} >
                         <span className="font-semibold text-2xl">Furniora</span>
@@ -81,13 +82,13 @@ function Navbar() {
                         )
                     })}
                 </div>
-                <div className="flex">
-                    <div><SearchIcon  /></div>
-                    <div className="flex-row-center">
+                <div className="flex items-center gap-4 lg:gap-6">
+                    <div className="cursor-pointer hover:text-gray-600 transition-colors"><SearchIcon  /></div>
+                    <div className="flex items-center gap-1 cursor-pointer hover:text-gray-600 transition-colors">
                         <ShoppingCartOutlinedIcon />
-                        <span>0</span>
+                        <span className="text-sm font-medium">0</span>
                     </div>
-                    <div className=" lg:hidden cursor-pointer" onClick={() => setIsMobileMenuOpen(true)}>
+                    <div className="lg:hidden cursor-pointer hover:text-gray-600 transition-colors" onClick={() => setIsMobileMenuOpen(true)}>
                         <MenuOutlinedIcon />
                     </div>
                 </div>
