@@ -1,11 +1,13 @@
 
+
 import Image from 'next/image';
 import Button from '../ui/button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Link from 'next/link';
 
 const BlogCard = ({blog}) => {
   return (
-    <div>
+    <Link href={`/blog/${blog.id}`}>
        <div className="w-full overflow-hidden rounded-2xl aspect-square object-cover">
          <Image  src={blog.image} alt={blog.title} width={800} height={800}
          className='h-full' />
@@ -19,7 +21,7 @@ const BlogCard = ({blog}) => {
             
         </div>
         
-    </div>
+    </Link>
   )
 }
 
